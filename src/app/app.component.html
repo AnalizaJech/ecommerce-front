@@ -1,38 +1,16 @@
-<!-- Mostrar solo el login sin layout -->
+<!-- Si estás en login, sin layout -->
 <div *ngIf="isLoginPage; else mainLayout">
   <router-outlet></router-outlet>
 </div>
 
-<!-- Layout principal con menú lateral -->
+<!-- Layout principal -->
 <ng-template #mainLayout>
   <div class="flex min-h-screen">
-    <!-- Sidebar -->
-    <aside class="w-64 bg-gray-800 text-white p-4">
-      <h2 class="text-xl font-bold mb-6">JECHCommerce</h2>
-
-      <nav class="flex flex-col gap-2">
-        <a routerLink="/products" routerLinkActive="bg-gray-700" class="p-2 rounded hover:bg-gray-700">
-          Productos
-        </a>
-        <a
-          *ngIf="userRole === 'admin'"
-          routerLink="/sales"
-          routerLinkActive="bg-gray-700"
-          class="p-2 rounded hover:bg-gray-700"
-        >
-          Ventas
-        </a>
-        <button
-          class="mt-6 bg-red-600 hover:bg-red-700 text-white py-1 rounded"
-          (click)="logout()"
-        >
-          Cerrar sesión
-        </button>
-      </nav>
-    </aside>
+    <!-- Sidebar (ya tiene ancho fijo) -->
+    <app-sidebar></app-sidebar>
 
     <!-- Contenido dinámico -->
-    <main class="flex-1 p-6 bg-gray-100">
+    <main class="flex-1 p-6 bg-gradient-to-br from-[#090979] via-[#1a1a40] to-[#020024] text-white">
       <router-outlet></router-outlet>
     </main>
   </div>

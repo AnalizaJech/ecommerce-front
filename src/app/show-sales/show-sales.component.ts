@@ -1,9 +1,10 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-show-sales',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './show-sales.component.html',
 })
 export class ShowSalesComponent {

@@ -10,6 +10,11 @@ import { NgIf } from '@angular/common';
 })
 export class SidebarComponent {
   userRole = localStorage.getItem('userrole');
+  isCollapsed = false;
+
+  toggleSidebar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 
   logout() {
     localStorage.clear();
