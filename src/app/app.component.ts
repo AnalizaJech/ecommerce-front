@@ -27,8 +27,9 @@ export class AppComponent {
   }
 
   get isLoginPage(): boolean {
-    return this.currentRoute === '/login';
+    return this.currentRoute === '/login' || this.currentRoute === '/register';
   }
+  
 
   logout() {
     localStorage.clear();

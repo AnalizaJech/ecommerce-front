@@ -1,15 +1,24 @@
-// app.routes.ts
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { ShowProductsComponent } from './show-products/show-products.component';
 import { ShowSalesComponent } from './show-sales/show-sales.component';
-import { RoleGuard } from './guards/role.guard'; // si ya lo creaste
-
+import { RoleGuard } from './guards/role.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
   {
     path: 'products',
     component: ShowProductsComponent,
@@ -21,6 +30,5 @@ export const routes: Routes = [
     component: ShowSalesComponent,
     canActivate: [RoleGuard],
     data: { roles: ['admin'] }
-  },
-  { path: '**', redirectTo: 'login' }
+  }
 ];
