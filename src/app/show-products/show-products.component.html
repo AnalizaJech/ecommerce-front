@@ -1,1 +1,78 @@
-<p>show-products works!</p>
+<div class="min-h-screen bg-gradient-to-br from-[#090979] via-[#1a1a40] to-[#020024] text-white p-6">
+    <!-- Encabezado y botón -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-extrabold text-cyan-300">Productos</h1>
+  
+      <button
+        *ngIf="userRole === 'admin'"
+        (click)="openModal()"
+        class="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-xl shadow-md hover:shadow-cyan-400/40 transition"
+      >
+        + Crear producto
+      </button>
+    </div>
+  
+    <!-- Tabla estilizada -->
+    <div class="overflow-auto rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl">
+      <table class="w-full text-left border-collapse text-cyan-100">
+        <thead class="bg-white/10">
+          <tr>
+            <th class="p-4">Nombre</th>
+            <th class="p-4">Categoría</th>
+            <th class="p-4">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover:bg-white/5 transition">
+            <td class="p-4 border-t border-white/20">Laptop</td>
+            <td class="p-4 border-t border-white/20">Electrónicos</td>
+            <td class="p-4 border-t border-white/20">$4000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Modal -->
+    <div
+      *ngIf="showModal"
+      class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div class="bg-white/10 border border-white/20 backdrop-blur-lg rounded-2xl p-8 w-full max-w-lg text-white shadow-2xl">
+        <h2 class="text-2xl font-bold text-cyan-300 mb-6">Nuevo Producto</h2>
+  
+        <form class="space-y-4">
+          <div>
+            <label class="block text-sm text-cyan-100 mb-1">Nombre</label>
+            <input type="text" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 placeholder-cyan-300 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+          </div>
+  
+          <div>
+            <label class="block text-sm text-cyan-100 mb-1">Categoría</label>
+            <input type="text" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 placeholder-cyan-300 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+          </div>
+  
+          <div>
+            <label class="block text-sm text-cyan-100 mb-1">Precio</label>
+            <input type="number" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 placeholder-cyan-300 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+          </div>
+  
+          <div class="flex justify-end gap-3 pt-4">
+            <button
+              type="button"
+              (click)="closeModal()"
+              class="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold rounded-lg shadow"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
